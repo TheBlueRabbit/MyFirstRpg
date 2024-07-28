@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsd85ses1kk3k"]
+
+[ext_resource type="Texture2D" uid="uid://vilgqk1l86l3" path="res://sprites/objects/Health potion.png" id="1_c14yk"]
+[ext_resource type="Script" path="res://scripts/potion.gd" id="1_gq47h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2qtq1"]
+
+[node name="Potion" type="Area2D"]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_gq47h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_c14yk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2qtq1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
